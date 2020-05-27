@@ -8,7 +8,7 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <BrowserRouter>
       <Nav />
-    </BrowserRouter>, 
+    </BrowserRouter>,
     div
   );
   ReactDOM.unmountComponentAtNode(div);
