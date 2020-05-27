@@ -23,7 +23,6 @@ function deleteBookmarkRequest(bookmarkId, cb) {
       return res.json()
     })
     .then(data => {
-      console.log({ data })
       cb(bookmarkId)
     })
     .catch(error => {
