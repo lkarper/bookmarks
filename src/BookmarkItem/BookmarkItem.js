@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Rating from '../Rating/Rating';
 import BookmarksContext from '../BookmarksContext';
 import config from '../config';
@@ -30,7 +31,7 @@ function deleteBookmarkRequest(bookmarkId, cb) {
     })
 }
 
-export default function BookmarkItem(props) {
+function BookmarkItem(props) {
   return (
     <BookmarksContext.Consumer>
       {(context) => (
@@ -52,6 +53,10 @@ export default function BookmarkItem(props) {
           <div className='BookmarkItem__buttons'>
             <button
               className='BookmarkItem__description'
+              onClick={() => props.history.push(`/update-bookmark/${props.id}`)}
+            >Edit</button>
+            <button
+              className='BookmarkItem__description'
               onClick={() => {
                 deleteBookmarkRequest(
                   props.id,
@@ -71,3 +76,5 @@ export default function BookmarkItem(props) {
 BookmarkItem.defaultProps = {
   onClickDelete: () => {},
 }
+
+export default withRouter(BookmarkItem);
